@@ -5,7 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\GoogleController;
-use App\Http\Controllers\FcmController;
+use App\Http\Controllers\FCMController;
+use App\Http\Controllers\MailTestController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -32,6 +33,10 @@ require __DIR__.'/auth.php';
 Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name('google.redirect');
 Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 
-// FCM
-Route::post('/fcm/register-token', [FcmController::class, 'registerToken'])->name('fcm.register');
-Route::post('/fcm/send-test', [FcmController::class, 'sendTest'])->name('fcm.sendTest');
+// FCM routes
+Route::post('/fcm/token', [FCMController::class, 'storeToken'])->name('fcm.token');
+Route::post('/fcm/test', [FCMController::class, 'sendTest'])->name('fcm.test');
+
+// Email test
+Route::post('/mail/test', [MailTestController::class, 'send'])->name('mail.test');
+
