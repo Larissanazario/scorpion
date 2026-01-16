@@ -19,6 +19,9 @@
     },
     "dependencies": {
         "@inertiajs/react": "^2.3.10",
+        "firebase": "^12.8.0",
+        "laravel-echo": "^2.3.0",
+        "pusher-js": "^8.4.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     }
