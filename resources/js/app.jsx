@@ -18,7 +18,16 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(<App {...props} />);
+        if ('serviceWorker' in navigator) {
+            initFirebaseMessaging()
+        }
     },
+    progress: {
+        color: '#4B5563',
+    },
+});
+import './echo';
+import { initFirebaseMessaging } from './firebase';
     progress: {
         color: '#4B5563',
     },
