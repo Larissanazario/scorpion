@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
     Route::get('/map', function () {
         return Inertia::render('MapPage');
     })->name('map');
